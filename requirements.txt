@@ -1,0 +1,5 @@
+accelerate
+huggingface-hub
+torch
+transformers
+yt-dlp
