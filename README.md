@@ -13,7 +13,7 @@ This script utilizes OpenAI's Whisper model for automatic speech recognition (AS
 
 ### Installation
 
-1. Clone this repository to your local machine.
+1. Clone repository to your local machine.
    
    ```bash
    git clone https://github.com/jaywolf/whisper_transcribe.git
@@ -28,7 +28,7 @@ This script utilizes OpenAI's Whisper model for automatic speech recognition (AS
 
 ### Running the Script
 
-1. Ensure you have your audio file named `session2.m4a` in the project directory.
+1. Ensure you have your audio file named `file_name.m4a` in the project directory.
 
 2. Run the script to transcribe the audio file.
    
@@ -36,7 +36,7 @@ This script utilizes OpenAI's Whisper model for automatic speech recognition (AS
    python app.py
    ```
 
-3. The transcription result will be saved in a file named `session2.txt` in the same directory.
+3. The transcription result will be saved in a file named `file_name.txt` in the same directory.
 
 ## Code Explanation
 
@@ -48,12 +48,14 @@ The main components of the script are as follows:
   import torch
   from transformers import AutoModelForSpeechSeq2Seq, AutoProcessor, pipeline
   ```
+
 - Set the device to use GPU if available, otherwise fallback to CPU:
   
   ```python
   device = "cuda:0" if torch.cuda.is_available() else "cpu"
   torch_dtype = torch.float16 if torch.cuda.is_available() else torch.float32
   ```
+
 - Define the model ID and load the processor and model from the Hugging Face model hub:
   
   ```python
@@ -64,6 +66,7 @@ The main components of the script are as follows:
   )
   model.to(device)
   ```
+
 - Create a pipeline for automatic speech recognition:
   
   ```python
@@ -80,6 +83,7 @@ The main components of the script are as follows:
       device=device,
   )
   ```
+
 - Specify the input audio file and output text file, and perform the transcription:
   
   ```python
